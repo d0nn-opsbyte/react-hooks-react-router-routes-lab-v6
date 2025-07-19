@@ -15,6 +15,13 @@ function Movie() {
      });
   }, [id]);
 
+  if (movie === null){
+    return <p>loading... </p>
+  }
+
+  if (movie === undefined) {
+  return <p>Not found</p>
+  }
   return (
     <>
       <header>
