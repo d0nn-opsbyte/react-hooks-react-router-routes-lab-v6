@@ -4,15 +4,16 @@ import NavBar from "../components/NavBar";
 
 function Movie() {
   const[ movie, setMovie ] = useState(null);
-  const params = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-     fetch(`http://localhost:4000/movies/${params.id}`)
+     fetch(`http://localhost:4000/movies/${id}`)
      .then((res) => res.json())
-     .then((data) => {
-      setMovie(data);
+     .then((data) =>  setMovie(data))
+     .catch((err) => {console.error("failed to get movie", err);
+      setMovie(undefined);
      });
-  }, [params.id]);
+  }, [id]);
 
   return (
     <>

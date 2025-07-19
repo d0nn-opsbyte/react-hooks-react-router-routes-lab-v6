@@ -10,7 +10,6 @@ const routes = [
     {
       path: "/",
       element: <Home />,
-      errorElement: <ErrorPage />
     },
     {
       path: "/directors",
